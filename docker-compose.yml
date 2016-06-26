@@ -1,9 +1,12 @@
-registry:
-  restart: always
-  image: registry:2
-  ports:
-    - 5000:5000
-  env_file: .env
-  volumes:
-    - ./certs:/certs
-    - ./auth:/auth
+version: '2'
+
+services:
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+      - 5000:5000
+    env_file: .env
+    volumes:
+      - ./data/letsencrypt/certs:/certs
+      - ./data/auth:/auth

@@ -1,0 +1,13 @@
+version: '2'
+
+letsencrypt:
+  image: xataz/letsencrypt
+  env_file: .env
+  volumes:
+    - ./data/certs:/etc/letsencrypt
+    - ./data/letsencrypt:/var/lib/letsencrypt
+  ports:
+    - "80:80"
+    - "443:443"
+  command:
+    - [certonly, --standalone, --agree-tos, -m, ${LETSENCRYPT_EMAIL}, -d, ${LETSENCRYPT_DOMAIN}, --dryrun]

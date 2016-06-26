@@ -6,13 +6,18 @@ script to automate most of it away.
 
 # Requirements
 
-  1. You will want to have a domain pointed at
+  1. You will want to have a domain pointed at the IP of your VM.
+  1. You will want to make sure ports 80, 443, and 5000 are open to the VM.
 
 # Installation
 
   1. Setup a new VM with docker. I prefer to use the Ubuntu image with the docker extention.
-  1. Once the machine is up you will want to point a domain at its IP address.
   1. Clone this repo `git clone https://github.com/undernewmanagement/docker-registry-letsencrypt-azure`
   1. `cd docker-registry-letsencrypt-azure`
-  1. `./setup-lets-encrypt.sh` - this will run letsencrypt and download the certificates
-  1. 
+  1. (optional) - If docker is not already installed, you can use the `setup-docker-ubuntu-16.04-xenial.sh`
+     script to install the latest version.
+  1. configure you environment variable using `evn.example` as a template. Save it as `.env`.
+  1. setup your TLS certs with Letsencrypt `docker-compose -f letsencrypt.yml up`
+  1. start the docker registry with `docker-compose -f docker-compose.yml up -d`
+
+
