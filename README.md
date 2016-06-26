@@ -26,7 +26,7 @@ to fill our your Azure storage credentials.
 
 Once installed and configured, you will have docker registry up and running on port 5000.
 
-You should be able to login with `docker login -u <user> -p <passwrd> <host>:5000
+You should be able to login with `docker login -u <user> -p <passwrd> <host>:5000`
 
 
 # License
