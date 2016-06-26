@@ -11,9 +11,11 @@ sudo apt-get purge lxc-docker
 sudo apt-cache policy docker-engine
 sudo apt-get install -y linux-image-extra-$(uname -r)
 sudo apt-get install -y docker-engine
+sudo apt-get install -y python-pip
 sudo service docker start
 sudo systemctl enable docker
 sudo groupadd docker
 sudo usermod -aG docker $(whoami)
+sudo pip install docker-compose
 
 echo "Done. You should logout and login again so that you can run docker as your unprivileged user."
